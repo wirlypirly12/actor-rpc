@@ -19,7 +19,6 @@ function ActorRPC:create_channels()
             name = channelname,
             channel = channel
         }
-        print(channelname)
     end
     return channels
 end
@@ -27,7 +26,6 @@ end
 function ActorRPC:connect(actor)
 
     self.all_channels.Gate.channel.Event:Connect(function(...)
-        print'got msg'
         return self:OnActorMessage(...)
     end)
 
@@ -94,15 +92,12 @@ function ActorRPC:connect(actor)
             end
             
             local ok, message = pcall(func, table.unpack(payload.args))
-            print(ok, message)
             local message_back = {
                 id = payload.id,
                 success = ok,
                 result = message
             }
 
-            print("gave back message")
-            table.foreach(message_back, print)
             Gate:Fire(message_back)
         end)
 
