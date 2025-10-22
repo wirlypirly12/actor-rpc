@@ -1,4 +1,4 @@
 # actor rpc
 
-actor messaging script, you can create and call functions
-probably add detouring eventually
+actor messaging script, allows you to create and call functions inside of other actors.
+i will probably add the ability to detour functions eventually
