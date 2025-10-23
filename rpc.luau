@@ -1,5 +1,6 @@
 local Class = loadstring(game:HttpGet("https://raw.githubusercontent.com/wirlypirly12/luau-utility/refs/heads/main/class.luau"))()
 local Promise = loadstring(game:HttpGet("https://raw.githubusercontent.com/wirlypirly12/luau-utility/refs/heads/main/promise.luau"))()
+local HttpService = game:GetService("HttpService")
 
 local ActorRPC = Class.new{
     name = "ActorRPC",
@@ -169,7 +170,7 @@ end
 
 function ActorRPC:make_request()
     return {
-        id = math.random(1,99999999),
+        id = HttpService:GenerateGUID(),
         timeout = 3
     }
 end
